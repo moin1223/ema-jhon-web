@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            background-color: aqua;
+            margin: 20px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 50px 50px 50 gray;
+        }
+    </style>
+</head>
+<body>
+<!-- 
+    <ul id="user-list"></ul> -->
+    <div id="user-detail"></div>
+
+
+
+  <script>
+
+//   fetch("https://jsonplaceholder.typicode.com/users")
+//   .then(res=>res.json())
+//   .then(data=>showUserName(data))
+
+
+
+//   function showUserName(data){
+//       let lists='';
+//       data.forEach(user=> {
+//     lists=lists+`<li> ${user.name}:${user.email}</li>`
+//       });
+//       const ul=document.getElementById("user-list");
+//       ul.innerHTML=lists;
+    
+//   }
+  fetch("https://jsonplaceholder.typicode.com/users")
+  .then(res=>res.json())
+  .then(data=>showUserName(data))
+
+
+
+  function showUserName(data){
+      let div='';
+      data.forEach(user=> {
+    div=div+`<div class="container">
+    <h2> ${user.name}</h2>
+    <p>email:${user.email}</p>
+    <p>${user.company.catchPhrase}</p>
+  </div>
+    `
+      });
+      const userDetail=document.getElementById("user-detail");
+      userDetail.innerHTML=div;
+    
+  }
+  
+
+
+
+
+
+
+
+  </script>  
+</body>
+</html>
